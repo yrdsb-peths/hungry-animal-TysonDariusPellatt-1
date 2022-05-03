@@ -17,6 +17,7 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        addObject(Turtle,300, 200);
+        Turtle t = new Turtle();
+        addObject(t,300, 200);
     }
 }
