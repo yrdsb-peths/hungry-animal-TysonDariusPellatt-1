@@ -15,6 +15,37 @@ public class Turtle extends Actor
     public void act()
     {
         // Add your action code here.
-        move(1);
+        if(Greenfoot.isKeyDown("left"))
+        {
+            move(-5);
+        }
+        if(Greenfoot.isKeyDown("a"))
+        {
+            move(-5);
+        }
+        if(Greenfoot.isKeyDown("right"))
+        {
+            move(5);
+        }
+        if(Greenfoot.isKeyDown("d"))
+        {
+            move(5);
+        }
+        if(Greenfoot.isKeyDown("up"))
+        {
+            setLocation(getX(),getY()-2);
+        }
+        if(Greenfoot.isKeyDown("w"))
+        {
+            setLocation(getX(),getY()-2);
+        }
+        if(Greenfoot.isKeyDown("down"))
+        {
+            setLocation(getX(),getY()+2);
+        }
+        if(Greenfoot.isKeyDown("s"))
+        {
+            setLocation(getX(),getY()+2);
+        }
     }
 }
