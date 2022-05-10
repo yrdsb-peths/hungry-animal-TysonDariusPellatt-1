@@ -17,12 +17,16 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-<<<<<<< HEAD
-        Turtle t = new Turtle();
-        addObject(t,300, 200);
-=======
-        Turtle tys = new Turtle;
-        addObject(tys,300, 200);
->>>>>>> 78d3011e23f0a8036adb84d5c37dc2960de02243
+        int delayTimer = 0;
+        Turtle tys = new Turtle();
+        addObject(tys,300,350);
+        spawnFruit();
+    }
+    public void spawnFruit()
+    {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = Greenfoot.getRandomNumber(150);
+        orange or1 = new orange();
+        addObject(or1, x, y);
     }
 }
