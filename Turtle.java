@@ -48,4 +48,14 @@ public class Turtle extends Actor
             setLocation(getX(),getY()+2);
         }
     }
+    public void eat()
+    {
+         if(isTouching(orange.class)){
+            removeTouching(orange.class);
+            MyWorld world = (MyWorld) getWorld();
+            world.increaseScore();
+            world.spawnFruit();
+        }
+    }
 }
+

@@ -8,18 +8,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
     /**
      * Constructor for objects of class MyWorld.
      * 
      */
+    public int score = 0;
+    public Label ScoreLabel = new Label(0,20);
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(600, 400, 1,false); 
         int delayTimer = 0;
         Turtle tys = new Turtle();
         addObject(tys,300,350);
+        addObject(ScoreLabel,20,20);
         spawnFruit();
     }
     public void spawnFruit()
@@ -28,5 +30,15 @@ public class MyWorld extends World
         int y = Greenfoot.getRandomNumber(150);
         orange or1 = new orange();
         addObject(or1, x, y);
+    }
+    public void increaseScore()
+    {
+        score++;
+        ScoreLabel.setValue(score);
+    }
+    public void gameOver()
+    {
+        Label gameOverLable = new Label("Game Over!",100);
+        addObject(gameOverLable, 300, 200);
     }
 }

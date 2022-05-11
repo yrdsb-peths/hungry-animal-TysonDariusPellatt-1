@@ -17,10 +17,13 @@ public class orange extends Actor
         // Add your action code here.
         int x = getX();
         int y = getY();
-        if(isTouching(Turtle.class))
-        {
-            
-        }
         setLocation(x, y + 2);
+        MyWorld world = (MyWorld) getWorld();
+        if(getY() >= getWorld().getHeight())
+        {
+            world.gameOver();
+            world.removeObject(this);
+        }
     }
+    
 }
