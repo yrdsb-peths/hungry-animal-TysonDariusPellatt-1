@@ -47,6 +47,7 @@ public class Turtle extends Actor
         {
             setLocation(getX(),getY()+2);
         }
+        eat();
     }
     public void eat()
     {
