@@ -15,6 +15,7 @@ public class Turtle extends Actor
     public void act()
     {
         // Add your action code here.
+        //Turtle.scale(50,50);
         if(Greenfoot.isKeyDown("left"))
         {
             move(-5);
