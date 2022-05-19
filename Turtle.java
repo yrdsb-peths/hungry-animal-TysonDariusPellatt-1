@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Turtle extends Actor
 {
-    GreenfootImage idle = new GreenfootImage("images/CharSprites/tile000.png");
+    GreenfootImage idle = new GreenfootImage("images/Sprites/tile001.png");
     /**
      * Act - do whatever the Turtle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -17,6 +17,7 @@ public class Turtle extends Actor
     {
         // Add your action code here.
         //Turtle.scale(50,50);
+        setImage(idle);
         if(Greenfoot.isKeyDown("left"))
         {
             move(-5);
