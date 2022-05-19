@@ -13,7 +13,7 @@ public class MyWorld extends World
      * 
      */
     public int score = 0;
-    public Label ScoreLabel = new Label(0,50);
+    public Label ScoreLabel = new Label(0,60);
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
