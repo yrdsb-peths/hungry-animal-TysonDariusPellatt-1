@@ -8,14 +8,37 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Turtle extends Actor
 {
-    GreenfootImage idle = new GreenfootImage("images/Sprites/tile001.png");
+    GreenfootImage[] idle = new GreenfootImage[4];
+    GreenfootImage[] idle2 = new GreenfootImage[4];
+    String facing = "right";
     /**
      * Act - do whatever the Turtle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Turtle()
     {
-        setImage(idle);
+        for(int i = 0; i < idle.length;i++)
+        {
+            idle[i] = new GreenfootImage("images/Sprites/tile10"+ i +".png");
+        }
+        for(int i = 0; i < idle2.length;i++)
+        {
+            idle2[i] = new GreenfootImage("images/SpriteLeft/tile00"+ i +".png");
+        }
+        setImage(idle[0]);
+    }
+    int imageIndex =0;
+    public void animateTurtle()
+    {
+        if(facing.equals("right"))
+        {
+            setImage(idle[imageIndex]);
+            imageIndex = (imageIndex + 1) % idle.length;
+        }
+        else{
+            setImage(idle2[imageIndex]);
+            imageIndex = (imageIndex + 1) % idle2.length;
+        }
     }
     public void act()
     {
@@ -23,18 +46,22 @@ public class Turtle extends Actor
         //Turtle.scale(50,50);
         if(Greenfoot.isKeyDown("left"))
         {
+            facing = "left";
             move(-5);
         }
         if(Greenfoot.isKeyDown("a"))
         {
+            facing = "left";
             move(-5);
         }
         if(Greenfoot.isKeyDown("right"))
         {
+            facing = "right";
             move(5);
         }
         if(Greenfoot.isKeyDown("d"))
         {
+            facing = "right";
             move(5);
         }
         if(Greenfoot.isKeyDown("up"))
