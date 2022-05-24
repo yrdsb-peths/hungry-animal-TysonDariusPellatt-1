@@ -8,36 +8,47 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Turtle extends Actor
 {
-    GreenfootImage[] idle = new GreenfootImage[4];
-    GreenfootImage[] idle2 = new GreenfootImage[4];
+    GreenfootImage[] idleR = new GreenfootImage[4];
+    GreenfootImage[] idleL = new GreenfootImage[4];
     String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
     /**
      * Act - do whatever the Turtle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Turtle()
     {
-        for(int i = 0; i < idle.length;i++)
+        for(int i = 0; i < idleR.length; i++)
         {
-            idle[i] = new GreenfootImage("images/Sprites/tile10"+ i +".png");
+            idleR[i] = new GreenfootImage("images/Sprites/tile10"+ i +".png");
+            idleR[i].scale(40,40);
         }
-        for(int i = 0; i < idle2.length;i++)
+        for(int i = 0; i < idleL.length; i++)
         {
-            idle2[i] = new GreenfootImage("images/SpriteLeft/tile00"+ i +".png");
+            idleL[i] = new GreenfootImage("images/SpriteLeft/tile00"+ i +".png");
+            idleL[i].scale(40,40);
         }
-        setImage(idle[0]);
+        animationTimer.mark();
+        // Inital sprite
+        setImage(idleR[0]);
     }
-    int imageIndex =0;
+    int imageIndex = 0;
     public void animateTurtle()
     {
+        if(animationTimer.millisElapsed() < 400)
+        {
+            return;
+        }
+        animationTimer.mark();
         if(facing.equals("right"))
         {
-            setImage(idle[imageIndex]);
-            imageIndex = (imageIndex + 1) % idle.length;
+            setImage(idleR[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleR.length;
         }
-        else{
-            setImage(idle2[imageIndex]);
-            imageIndex = (imageIndex + 1) % idle2.length;
+        else
+        {
+            setImage(idleL[imageIndex]);
+            imageIndex = (imageIndex + 1) % idleL.length;
         }
     }
     public void act()
@@ -81,6 +92,7 @@ public class Turtle extends Actor
             setLocation(getX(),getY()+2);
         }
         eat();
+        animateTurtle();
     }
     public void eat()
     {
