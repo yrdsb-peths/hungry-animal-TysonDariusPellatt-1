@@ -9,8 +9,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**this class originaly had the image of a turtle but changed the sprite
 i am conserneded that it i change the name of the actor it will break my game
 */
-public class Turtle extends Actor
+public class Player extends Actor
 {
+    GreenfootSound eatSound = new GreenfootSound("nom.wav");
     GreenfootImage[] idleR = new GreenfootImage[4];
     GreenfootImage[] idleL = new GreenfootImage[4];
     String facing = "right";
@@ -19,7 +20,7 @@ public class Turtle extends Actor
      * Act - do whatever the Turtle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Turtle()
+    public Player()
     {
         for(int i = 0; i < idleR.length; i++)
         {
@@ -95,7 +96,6 @@ public class Turtle extends Actor
             setLocation(getX(),getY()+2);
         }
         eat();
-        //dead();
         animateTurtle();
     }
     public void eat()
@@ -105,15 +105,8 @@ public class Turtle extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.increaseScore();
             world.spawnFruit();
+            eatSound.play();
         }
     }
-    /**
-    public void dead()
-    {
-         if(isTouching(hazard.class)){
-            world.gameOver();
-            removeTouching(hazard.class);
-        }
-    }*/
 }
 

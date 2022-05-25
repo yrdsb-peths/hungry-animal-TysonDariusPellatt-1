@@ -21,8 +21,8 @@ public class MyWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1,false); 
         int delayTimer = 0;
-        Turtle tys = new Turtle();
-        addObject(tys,300,350);
+        Player P1 = new Player();
+        addObject(P1,300,350);
         addObject(ScoreLabel,20,20);
         spawnFruit();
         spawnEnemy();

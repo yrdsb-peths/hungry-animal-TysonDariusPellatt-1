@@ -25,8 +25,8 @@ public class Hazard extends Actor
         MyWorld world = (MyWorld) getWorld();
     
         
-        if(isTouching(Turtle.class) || getY() >= world.getHeight()){
-            if(isTouching(Turtle.class)){
+        if(isTouching(Player.class) || getY() >= world.getHeight()){
+            if(isTouching(Player.class)){
                 world.gameOver();    
             }
             world.removeObject(this);
