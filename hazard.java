@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class hazard extends Actor
+public class Hazard extends Actor
 {
     /**
      * Act - do whatever the hazard wants to do. This method is called whenever
@@ -21,12 +21,9 @@ public class hazard extends Actor
         setLocation(x, y + 1);
         
         MyWorld world = (MyWorld) getWorld();
-        if(getY() >= world.getHeight())
-        {
-            world.dodgeScore();
-            world.removeObject(this);
-        }
-        if(isTouching(Turtle.class)){
+    
+        
+        if(isTouching(Turtle.class) || getY() >= world.getHeight()){
             world.gameOver();
             world.removeObject(this);
         }

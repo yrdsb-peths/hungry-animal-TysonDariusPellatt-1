@@ -37,7 +37,7 @@ public class MyWorld extends World
     {
         int x = Greenfoot.getRandomNumber(600);
         int y = Greenfoot.getRandomNumber(150);
-        hazard e1 = new hazard();
+        Hazard e1 = new Hazard();
         addObject(e1, x, y);
     }
     public void increaseScore()
