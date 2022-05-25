@@ -12,6 +12,7 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    public int dodge = 0;
     public int score = 0;
     public Label ScoreLabel = new Label(0,60);
     public MyWorld()
@@ -23,6 +24,7 @@ public class MyWorld extends World
         addObject(tys,300,350);
         addObject(ScoreLabel,20,20);
         spawnFruit();
+        spawnEnemy();
     }
     public void spawnFruit()
     {
@@ -31,10 +33,21 @@ public class MyWorld extends World
         orange or1 = new orange();
         addObject(or1, x, y);
     }
+    public void spawnEnemy()
+    {
+        int x = Greenfoot.getRandomNumber(600);
+        int y = Greenfoot.getRandomNumber(150);
+        hazard e1 = new hazard();
+        addObject(e1, x, y);
+    }
     public void increaseScore()
     {
         score++;
         ScoreLabel.setValue(score);
+    }
+    public void dodgeScore()
+    {
+        dodge++;
     }
     public void gameOver()
     {

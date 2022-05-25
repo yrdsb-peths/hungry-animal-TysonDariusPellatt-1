@@ -6,6 +6,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
+/**this class originaly had the image of a turtle but changed the sprite
+i am conserneded that it i change the name of the actor it will break my game
+*/
 public class Turtle extends Actor
 {
     GreenfootImage[] idleR = new GreenfootImage[4];
@@ -92,6 +95,7 @@ public class Turtle extends Actor
             setLocation(getX(),getY()+2);
         }
         eat();
+        //dead();
         animateTurtle();
     }
     public void eat()
@@ -103,5 +107,13 @@ public class Turtle extends Actor
             world.spawnFruit();
         }
     }
+    /**
+    public void dead()
+    {
+         if(isTouching(hazard.class)){
+            world.gameOver();
+            removeTouching(hazard.class);
+        }
+    }*/
 }
 
