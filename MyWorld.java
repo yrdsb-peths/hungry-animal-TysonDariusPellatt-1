@@ -39,16 +39,22 @@ public class MyWorld extends World
         int x = Greenfoot.getRandomNumber(600);
         int y = Greenfoot.getRandomNumber(150);
         Hazard e1 = new Hazard();
+        Hazard e2 = new Hazard();
+        Hazard e3= new Hazard();
         addObject(e1, x, y);
+        if(score >= 20)
+        {
+            addObject(e2, x, y);
+        }
+        if(score >= 50)
+        {
+            addObject(e3, x, y);
+        }
     }
     public void increaseScore()
     {
         score++;
         ScoreLabel.setValue(score);
-    }
-    public void dodgeScore()
-    {
-        dodge++;
     }
     public void gameOver()
     {
