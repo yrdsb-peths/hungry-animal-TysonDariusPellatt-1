@@ -16,6 +16,8 @@ public class Hazard extends Actor
     {
         // Add your action code here.
         GreenfootImage hazard = new GreenfootImage("images/enemy sprite/hazardFlame.png");
+        setImage(hazard);
+        hazard.scale(40,40);
         int x = getX();
         int y = getY();
         setLocation(x, y + 1);
@@ -24,8 +26,11 @@ public class Hazard extends Actor
     
         
         if(isTouching(Turtle.class) || getY() >= world.getHeight()){
-            world.gameOver();
+            if(isTouching(Turtle.class)){
+                world.gameOver();    
+            }
             world.removeObject(this);
+            world.spawnEnemy();
         }
     }
 }
