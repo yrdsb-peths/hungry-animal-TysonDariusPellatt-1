@@ -46,10 +46,6 @@ public class MyWorld extends World
         {
             addObject(e2, x, y);
         }
-        if(score >= 50)
-        {
-            addObject(e3, x, y);
-        }
     }
     public void increaseScore()
     {
